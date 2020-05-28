@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>StormGlassApi</title>
+  </head>
+  <body>
+    <div class="">
+      <h1 style="color:red">Storm Glass API Demo</h1>
+    </div>
+    <div class="">
+      <hr>
+    <p>Latitide</p>
+    <span>
+      <input type="text" name="" value='28.7041'id="ltd">
+
+    </span>
+    <hr>
+    <p>Longitude</p>
+    <input type="text" name="" value='77.1025'id="lng">
+    <hr>
+    <p>Hour of the day</p>
+    <input id="hour"type="number" name="" value=""min="0"max="23">
+    <!-- <input id="airTemperature" type="checkbox" name="parameter1" value="airTemperature">
+    <label for="parameter1">AirTemperature</label>
+    <input id="windSpeed"type="checkbox" name="parameter2" value="windSpeed">
+    <label for="parameter2">WindSpeed</label>
+    <input id="humidity"type="checkbox" name="parameter3" value="humidity">
+    <label for="parameter3">Humidity</label> -->
+    <button type="button" name="button" onclick=apicall();>Get_Data</button>
+    <div class="" id="dis" style="display:none">
+      <div><span>temp = </span><span id="temp"></span><span>celsius</span> </div>
+      <div><span>windspeed = </span><span id="windspeed"></span> <span>kmph</span> </div>
+      <div><span>humidity = </span><span id="humid"></span> <span>BAR i think:)</span> </div>
+    </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+
+  function apicall() {
+const lat = document.getElementById('ltd').value ;
+const lng = document.getElementById('lng').value ;
+let i=document.getElementById('hour').value;
+//const params = 'windSpeed,airTemperature'
+const params = 'airTemperature,windSpeed,humidity'
+const apikey1 ='2efd5290-99a7-11ea-aa6d-0242ac130002-2efd53bc-99a7-11ea-aa6d-0242ac130002';
+
+fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
+headers: {
+  'Authorization': '2efd5290-99a7-11ea-aa6d-0242ac130002-2efd53bc-99a7-11ea-aa6d-0242ac130002'
+}
+}).then((response) => response.json()).then((jsonData) => {
+// Do something with response data.
+console.log(jsonData);
+document.getElementById('temp').textContent      = jsonData.hours[i].airTemperature.noaa;
+document.getElementById('windspeed').textContent = jsonData.hours[i].windSpeed.noaa;
+document.getElementById('humid').textContent     = jsonData.hours[i].humidity.noaa;
+});
+document.getElementById('dis').style.display='block';
+}
+
+  </script>
+</html>
