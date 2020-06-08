@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Survey Form</title>
+  <style>
+  * {
+  	box-sizing: border-box;
+  }
+
+  body {
+  	background-color: #9b59b6;
+  	font-family: 'Open Sans', sans-serif;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	min-height: 100vh;
+  	margin: 0;
+  }
+
+  div {
+  	background-color: #fff;
+  	border-radius: 5px;
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  	overflow: hidden;
+  	width: 400px;
+  	max-width: 100%;
+  }
+
+  .header {
+  	border-bottom: 1px ;
+  	background-color: #f7f7f7;
+  	padding: 20px 40px;
+    margin: 0;
+  }
+
+  .header h1 {
+  	margin: 0;
+    border-bottom: 0;
+  }
+
+  .form {
+  	padding: 30px 40px;
+  }
+
+
+  .form-controls label {
+  	display: inline-block;
+  	margin-bottom: 5px;
+  }
+  .radio-input {
+  	display: inline-block;
+  	margin-bottom: 5px;
+  }
+
+  .form-control input {
+  	border: 2px solid #f0f0f0;
+  	border-radius: 4px;
+  	display: block;
+  	font-family: inherit;
+  	font-size: 14px;
+  	padding: 10px;
+  	width: 100%;
+  }
+  .form-controls {
+  	border: 2px solid #f0f0f0;
+  	border-radius: 4px;
+  	display: inline-flex;
+  	font-family: inherit;
+  	font-size: 14px;
+  	padding: 10px;
+  	width: 100%;
+  }
+  .form-control textarea{
+  	border: 2px solid #f0f0f0;
+  	border-radius: 4px;
+  	display: block;
+  	font-family: inherit;
+  	font-size: 14px;
+  	padding: 10px;
+  	width: 100%;
+  }
+
+  .form-controls input:focus {
+  	outline: 0;
+  	border-color: #777;
+  }
+
+
+
+  .form button {
+  	background-color: #8e44ad;
+  	border: 2px solid #8e44ad;
+  	border-radius: 4px;
+  	color: #fff;
+  	display: block;
+  	font-family: inherit;
+  	font-size: 16px;
+  	padding: 10px;
+  	margin-top: 20px;
+  	width: 100%;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="">
+    <h1 id="title" class="header">survey form</h1>
+    <p id="description" class="header">project for the freecodecamp </p>
+    <form class="form-control form" action="" method="post" id="survey-form">
+      <label for="name" id="name-label">Name</label><br>
+      <input type="text" name="Name" id="name" value="" placeholder="Enter your name" required><br>
+      <label for="email" id="email-label">Email</label><br>
+      <input type="email" name="Email" id="email" value="" placeholder="Enter your Email address" required><br>
+      <label for="number" id="number-label">Age <span>(optional)</span></label><br>
+      <input type="number" id="number" name="Number" value="" placeholder="Age" min="10" max="99"><br>
+      <label for="dropdown">Which option best describes your current role?</label><br>
+      <select class="form-controls" name="role" id="dropdown">
+        <option value="" disabled selected>Select current role</option>
+        <option value="Student">Student</option>
+        <option value="Full Time Job">Full Time Job</option>
+        <option value="Full Time Learner">Full Time Learner</option>
+        <option value="Others">Others</option>
+      </select><br>
+      <p>Would you recommend freeCodeCamp to a friend?</p><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="radio" name="recommendation" value="Definately" id="Definately">
+      <label style="display:inline;margin:15px"class="form-controls"for="Definately">Definately</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="radio" name="recommendation" value="Maybe" id="Maybe">
+      <label style="display:inline;margin:15px"class="form-controls"for="Maybe">Maybe</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="radio" name="recommendation" value="Not sure" id="Not sure">
+      <label style="display:inline;margin:15px"class="form-controls"for="Not sure">Not sure</label><br>
+      <label for="feature">What is your favorite feature of freeCodeCamp?</label><br>
+      <select class="form-controls" name="feature">
+        <option value="" disabled selected>Select an option</option>
+        <option value="Challenge">Challenge</option>
+        <option value="Project">Project</option>
+        <option value="Community">Community</option>
+        <option value="Open Source">Open Source</option>
+      </select><br>
+      <p>What would you like to see improved? (Check all that apply)</p>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="checkbox" name="Front-end Projects" value="Front-end Projects" id="Front-end Projects">
+      <label style="width:auto;display:inline;margin:15px"class="form-controls"for="Front-end Projects">Front-end Projects</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="checkbox" name="Back-end Projects" value="Back-end Projects" id="Back-end Projects">
+      <label style="width:auto;display:inline;margin:15px"class="form-controls"for="Back-end Projects">Back-end Projects</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="checkbox" name="Data Visualization" value="Data Visualization" id="Data Visualization">
+      <label style="width:auto;display:inline;margin:15px"class="form-controls"for="Data Visualization">Data Visualization</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="checkbox" name="Challenges" value="Challenges" id="Challenges">
+      <label style="width:auto;display:inline;margin:15px"class="form-controls"for="Challenges">Challenges</label><br>
+      <input style="width:auto;display:inline;margin:15px"class="radio-input"type="checkbox" name="Open Source Community" value="Open Source Community" id="Open Source Community">
+      <label style="width:auto;display:inline;margin:15px"class="form-controls"for="Open Source Community">Open Source Community</label><br>
+      <p>Any comments or suggestions?</p>
+      <textarea name="textarea" rows="8" cols="80" placeholder="Enter your comments here..."></textarea><br>
+
+      <button type="submit" name="button" id="submit">Done</button>
+    </form>
+
+  </div>
+</body>
+
+</html>
